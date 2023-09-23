@@ -80,6 +80,7 @@ module.exports = {
           'styl',
           'ecma',
           'lang',
+          'Calc',
           'dspot',
           'latin',
           'jsdom',

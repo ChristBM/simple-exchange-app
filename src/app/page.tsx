@@ -1,9 +1,7 @@
-import TestMantineComponent from '@common/components/TestMantineComponent';
+import HomePageLayout from '@exCalcViews/HomePageLayout';
 
 export default function Home() {
   return (
-    <main>
-      <TestMantineComponent />
-    </main>
+    <HomePageLayout />
   );
 }
