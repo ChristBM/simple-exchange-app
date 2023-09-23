@@ -29,6 +29,7 @@ const customJestConfig = {
     '@/(.*)$': '<rootDir>/src/$1',
     '^@public/(.*)$': '<rootDir>/public/$1',
     '^@common/(.*)$': '<rootDir>/src/common/$1',
+    '\\.(css|less|scss|sss|styl)$': '<rootDir>/node_modules/jest-css-modules',
   },
   clearMocks: true,
   injectGlobals: true,

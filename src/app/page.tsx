@@ -1,9 +1,9 @@
-import TestComponent from 'src/common/components/TestComponent';
+import TestMantineComponent from '@common/components/TestMantineComponent';
 
 export default function Home() {
   return (
     <main>
-      <TestComponent subtitle="World" btnLabel="add title" />
+      <TestMantineComponent />
     </main>
   );
 }
