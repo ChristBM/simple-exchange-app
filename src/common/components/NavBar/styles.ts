@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 
 export const NavBarWrapper = styled.div`
@@ -11,4 +10,12 @@ export const NavBarWrapper = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+`;
+
+export const IconSunWrapper = styled.div<{$show: boolean}>`
+  display: ${(props) => (props.$show ? 'none' : 'block')};
+`;
+
+export const IconMoonWrapper = styled.div<{$show: boolean}>`
+  display: ${(props) => (props.$show ? 'none' : 'block')};
 `;

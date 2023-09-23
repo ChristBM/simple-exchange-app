@@ -7,5 +7,7 @@ export default function useNavBar() {
 
   const handleChangeColorScheme = () => setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light');
 
-  return { computedColorScheme, handleChangeColorScheme };
+  const showSunIcon = computedColorScheme === 'light';
+
+  return { showSunIcon, handleChangeColorScheme };
 }

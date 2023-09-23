@@ -1,13 +1,14 @@
 import '@mantine/core/styles.css';
 import '@common/styles/globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+// import { Inter } from 'next/font/google';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 
 import NavBar from '@common/components/NavBar';
 import defaultTheme from '@common/styles/DefaultTheme';
 
-const inter = Inter({ subsets: ['latin'] });
+// const inter = Inter({ subsets: ['latin'] });
+// className={inter.className}
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -25,11 +26,12 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
 
-      <body className={inter.className}>
-        <MantineProvider theme={defaultTheme} defaultColorScheme="auto">
-          <NavBar />
-
-          {children}
+      <body>
+        <MantineProvider theme={defaultTheme} defaultColorScheme="dark">
+          <>
+            <NavBar />
+            {children}
+          </>
         </MantineProvider>
       </body>
     </html>

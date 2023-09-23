@@ -2,12 +2,11 @@
 
 import { ActionIcon } from '@mantine/core';
 import { IconSun, IconMoon } from '@tabler/icons-react';
-
-import { NavBarWrapper } from './styles';
 import useNavBar from './useNavBar.vm';
+import { IconMoonWrapper, IconSunWrapper, NavBarWrapper } from './styles';
 
 export default function NavBar() {
-  const { computedColorScheme, handleChangeColorScheme } = useNavBar();
+  const { showSunIcon, handleChangeColorScheme } = useNavBar();
 
   return (
     <NavBarWrapper>
@@ -17,8 +16,13 @@ export default function NavBar() {
         size="xl"
         aria-label="Toggle color scheme"
       >
-        {computedColorScheme === 'dark' && <IconSun stroke={1.5} />}
-        {computedColorScheme === 'light' && <IconMoon stroke={1.5} />}
+        <IconSunWrapper $show={showSunIcon}>
+          <IconSun stroke={1.5} />
+        </IconSunWrapper>
+
+        <IconMoonWrapper $show={!showSunIcon}>
+          <IconMoon stroke={1.5} />
+        </IconMoonWrapper>
       </ActionIcon>
     </NavBarWrapper>
   );
