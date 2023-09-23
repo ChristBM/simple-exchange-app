@@ -2,18 +2,18 @@
 
 exports[`<TestComponent /> Renders correctly (snapshot) 1`] = `
 <div
-  className="sc-beyTiQ eMKGUP"
+  className="sc-e3051fbf-0 gNlaZY"
 >
   <h1
-    className="sc-guDMob iwoBUU"
+    className="sc-e3051fbf-1 dFUtuC"
   />
   <p
-    className="sc-dmyDmy kSCDqM"
+    className="sc-e3051fbf-2 eYncjv"
   >
     subtitle
   </p>
   <button
-    className="sc-hLQTFJ jTDXOb"
+    className="sc-e3051fbf-3 hSklqs"
     onClick={[Function]}
   >
     add

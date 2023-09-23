@@ -1,10 +1,19 @@
-import { HomeSection, HomeWrapper } from './styles';
+import CalculatorTitle from '@exCalcComponents/CalculatorTitle/CalculatorTitle';
 
-export default function HomePageLayout() {
+import { HomeSection, HomeWrapper } from './styles';
+import { HomePageLayoutProps } from './Interfaces';
+
+export const HOME_DEFAULT_PROPS = {
+  title: 'Simple Exchange Rate Calculator',
+};
+
+export default function HomePageLayout({
+  title = HOME_DEFAULT_PROPS.title,
+}: HomePageLayoutProps) {
   return (
     <HomeWrapper>
       <HomeSection>
-        Title here
+        <CalculatorTitle title={title} />
       </HomeSection>
 
       <HomeSection>
