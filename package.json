@@ -9,12 +9,14 @@
     "lint": "next lint --dir src/",
     "lint:fix": "next lint --dir src/ --fix",
     "test": "jest --ci --passWithNoTests",
-    "test:ci": "jest --coverage --silent --ci --passWithNoTests"
+    "test:ci": "jest --coverage --silent --ci --passWithNoTests",
+    "test:update": "jest -u"
   },
   "dependencies": {
     "next": "^13.4.19",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.0.8"
   },
   "devDependencies": {
     "@dspot/eslint-plugin": "https://github.com/DSpotDevelopers/dspot-eslint-plugin",

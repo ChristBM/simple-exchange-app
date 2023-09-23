@@ -2,6 +2,9 @@
 
 import { TestComponentProps } from './Interfaces';
 import useTestComponent from './useTestComponent.vm';
+import {
+  Button, Text, Title, Wrapper,
+} from './styles';
 
 export default function TestComponent({
   subtitle,
@@ -10,14 +13,12 @@ export default function TestComponent({
   const { title, handleClick } = useTestComponent();
 
   return (
-    <div>
-      <h1>{title}</h1>
+    <Wrapper>
+      <Title $isPrimary>{title}</Title>
 
-      <p>{subtitle}</p>
+      <Text>{subtitle}</Text>
 
-      <button type="button" onClick={handleClick}>
-        {btnLabel}
-      </button>
-    </div>
+      <Button onClick={handleClick} $isPrimary>{btnLabel}</Button>
+    </Wrapper>
   );
 }
