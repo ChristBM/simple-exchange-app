@@ -16,8 +16,5 @@
   "bracketSameLine": false,
   "quoteProps": "as-needed",
   "htmlWhitespaceSensitivity": "css",
-  "embeddedLanguageFormatting": "auto",
-  "plugins": [
-    "prettier-plugin-tailwindcss"
-  ]
+  "embeddedLanguageFormatting": "auto"
 }

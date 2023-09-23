@@ -1,9 +1,12 @@
 import Image from 'next/image';
+import TestComponent from 'src/common/components/TestComponent';
+
 import styles from './page.module.css';
 
 export default function Home() {
   return (
     <main className={styles.main}>
+      <TestComponent text="World" btnLabel="add title" />
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
