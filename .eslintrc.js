@@ -94,10 +94,12 @@ module.exports = {
           'noopener',
           'plusplus',
           'tsconfig',
+          'Dropdown',
           'linebreak',
           'unobserve',
           'breakpoint',
           'noreferrer',
+          'searchable',
           'describedby',
         ],
         skipIfMatch: [

@@ -1,4 +1,5 @@
 import CalculatorTitle from '@exCalcComponents/CalculatorTitle/CalculatorTitle';
+import Calculator from '@exCalcComponents/Calculator/Calculator';
 
 import { HomeSection, HomeWrapper } from './styles';
 import { HomePageLayoutProps } from './Interfaces';
@@ -17,7 +18,7 @@ export default function HomePageLayout({
       </HomeSection>
 
       <HomeSection>
-        Calculator Here
+        <Calculator />
       </HomeSection>
     </HomeWrapper>
   );
