@@ -2,9 +2,10 @@ import { useEffect, useReducer } from 'react';
 import {
   ButtonProps, ElementProps, NumberInputProps, SelectProps, useComputedColorScheme,
 } from '@mantine/core';
-import calcConversion, { calcRate } from '@exCalcUtils/functions/calcConversion';
-import optFinder from '@exCalcUtils/functions/optFinder';
 
+import optFinder from '@exCalcUtils/functions/optFinder';
+import { ResultProps } from '@exCalcComponents/Result/Interfaces';
+import calcConversion, { calcRate } from '@exCalcUtils/functions/calcConversion';
 import calcReducer, { CalcInitialState } from './Reducer';
 import { CalculatorArgs } from './Interfaces';
 
@@ -86,6 +87,7 @@ export default function useCalculator({ currencies }: CalculatorArgs) {
     placeholder: 'Select a currency',
     data: currencies,
     nothingFoundMessage: 'Sorry, we do not have this currency',
+    radius: 'md',
     allowDeselect: false,
     checkIconPosition: 'right',
     searchable: true,
@@ -142,8 +144,12 @@ export default function useCalculator({ currencies }: CalculatorArgs) {
     },
   };
 
-  // eslint-disable-next-line no-console
-  console.log(conversion, exchangeRate);
+  const resultProps: ResultProps = {
+    labelA: 'Conversion Result:',
+    labelB: 'Exchange Rate:',
+    conversion,
+    exchangeRate,
+  };
 
   return {
     computedColorScheme,
@@ -151,5 +157,6 @@ export default function useCalculator({ currencies }: CalculatorArgs) {
     selectCurrencyFrom,
     selectCurrencyTo,
     convertButtonProps,
+    resultProps,
   };
 }

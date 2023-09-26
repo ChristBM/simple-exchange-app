@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Result/> snapshot Renders correctly 1`] = `
+<div
+  className="sc-6a4bc0eb-0 kUTnqB"
+>
+  <section
+    className="sc-6a4bc0eb-1 hGsTsy"
+  >
+    <p
+      className="sc-6a4bc0eb-2 diBJjv"
+    >
+      Conversion Result:
+    </p>
+    <div
+      className="sc-6a4bc0eb-3 dIZZvP"
+    >
+      <input
+        className="sc-6a4bc0eb-4 dgxDd"
+        readOnly={true}
+        type="text"
+        value={0}
+      />
+      <p
+        className="sc-6a4bc0eb-6 kdDtIb"
+      >
+        ---
+      </p>
+    </div>
+  </section>
+  <section
+    className="sc-6a4bc0eb-1 hGsTsy"
+  >
+    <p
+      className="sc-6a4bc0eb-2 diBJjv"
+    >
+      Exchange Rate:
+    </p>
+    <div
+      className="sc-6a4bc0eb-5 goOuKl"
+    >
+      <p>
+        1
+      </p>
+      <p
+        className="sc-6a4bc0eb-6 kdDtIb"
+      >
+        ---
+      </p>
+      <div>
+        <svg
+          className="tabler-icon tabler-icon-arrows-exchange"
+          fill="none"
+          height={20}
+          stroke="purple"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          style={
+            {
+              "paddingBlockStart": "3px",
+            }
+          }
+          viewBox="0 0 24 24"
+          width={20}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7 10h14l-4 -4"
+          />
+          <path
+            d="M17 14h-14l4 4"
+          />
+        </svg>
+      </div>
+      <input
+        className="sc-6a4bc0eb-4 dgxDd"
+        readOnly={true}
+        type="text"
+        value={1}
+      />
+      <p
+        className="sc-6a4bc0eb-6 kdDtIb"
+      >
+        ---
+      </p>
+    </div>
+  </section>
+</div>
+`;

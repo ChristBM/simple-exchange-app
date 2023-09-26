@@ -4,36 +4,24 @@ import styled from 'styled-components';
 
 export const CalculatorWrapper = styled.div<{$scheme: 'light' | 'dark'}>`
   display: flex;
-  width: 330px;
-  height: 650px;
-  padding: 20px 15px;
+  width: 390px;
+  height: max-content;
+  padding: 40px 40px 60px 40px;
   margin-block-end: 50px;
   border-radius: 8px;
   flex-direction: column;
   align-items: center;
-  gap: 35px;
+  gap: 40px;
   background-color: ${({ $scheme }) => ($scheme === 'light' ? '#FFF' : '#25262b')};
   backdrop-filter: blur(20px);
   box-shadow: 2px 0px 10px #17171730;
-
-  @media screen and (min-width: 768px) {
-    & {
-      width: 550px;
-      height: 320px;
-    }
-  }
 `;
 
 export const InputSectionWrapper = styled.section`
   display: flex;
+  width: 300px;
   flex-direction: column;
   gap: 15px;
-
-  @media screen and (min-width: 768px) {
-    & {
-      flex-direction: row;
-    }
-  }
 `;
 
 export const ButtonSectionWrapper = styled.section`

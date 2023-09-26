@@ -3,6 +3,7 @@
 import { Button, NumberInput, Select } from '@mantine/core';
 import { IconArrowsExchange2, IconCash, IconCoins } from '@tabler/icons-react';
 
+import Result from '@exCalcComponents/Result';
 import CALCULATOR_DEFAULT_PROPS from './DefaultCurrencies';
 import { CalculatorProps } from './Interfaces';
 import useCalculator from './useCalculator.vm';
@@ -22,6 +23,7 @@ export default function Calculator({
     selectCurrencyFrom,
     selectCurrencyTo,
     convertButtonProps,
+    resultProps,
   } = useCalculator({ currencies });
 
   return (
@@ -93,13 +95,12 @@ export default function Calculator({
       </ButtonSectionWrapper>
 
       <ResultsSectionWrapper>
-        <div>
-          Conversion Result:
-        </div>
-
-        <div>
-          Exchange Rate:
-        </div>
+        <Result
+          labelA={resultProps.labelA}
+          labelB={resultProps.labelB}
+          conversion={resultProps.conversion}
+          exchangeRate={resultProps.exchangeRate}
+        />
       </ResultsSectionWrapper>
     </CalculatorWrapper>
   );
