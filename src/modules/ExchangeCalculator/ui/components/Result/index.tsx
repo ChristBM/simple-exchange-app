@@ -37,7 +37,12 @@ export default function Result({
         <ResultLabelText>{labelA}</ResultLabelText>
 
         <ConversionResultWrapper>
-          <ConversionReadOnly type="text" readOnly value={conversion.result} />
+          <ConversionReadOnly
+            data-testid="conversion-result-id"
+            type="text"
+            readOnly
+            value={conversion.result}
+          />
 
           <CurrencyText>{conversion.currency}</CurrencyText>
         </ConversionResultWrapper>
@@ -59,7 +64,12 @@ export default function Result({
             />
           </div>
 
-          <ConversionReadOnly type="text" readOnly value={exchangeRate.result} />
+          <ConversionReadOnly
+            data-testid="exchange-rate-result-id"
+            type="text"
+            readOnly
+            value={exchangeRate.result}
+          />
 
           <CurrencyText>{exchangeRate.toCurrency}</CurrencyText>
         </ExchangeResultWrapper>

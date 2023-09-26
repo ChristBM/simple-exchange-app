@@ -17,6 +17,7 @@ exports[`<Result/> snapshot Renders correctly 1`] = `
     >
       <input
         className="sc-6a4bc0eb-4 dgxDd"
+        data-testid="conversion-result-id"
         readOnly={true}
         type="text"
         value={0}
@@ -75,6 +76,7 @@ exports[`<Result/> snapshot Renders correctly 1`] = `
       </div>
       <input
         className="sc-6a4bc0eb-4 dgxDd"
+        data-testid="exchange-rate-result-id"
         readOnly={true}
         type="text"
         value={1}

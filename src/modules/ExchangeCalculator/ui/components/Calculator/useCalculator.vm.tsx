@@ -9,6 +9,8 @@ import calcConversion, { calcRate } from '@exCalcUtils/functions/calcConversion'
 import calcReducer, { CalcInitialState } from './Reducer';
 import { CalculatorArgs } from './Interfaces';
 
+export const SELECT_ERROR_MSG = 'Please select a currency';
+
 export default function useCalculator({ currencies }: CalculatorArgs) {
   const [{
     amount, from, to, conversion, exchangeRate, errorField,
@@ -136,8 +138,8 @@ export default function useCalculator({ currencies }: CalculatorArgs) {
         dispatch({
           type: 'SET_SELECT_ERRORS',
           payload: {
-            fromError: from.currency.length === 0 ? 'Please select a currency' : false,
-            toError: to.currency.length === 0 ? 'Please select a currency' : false,
+            fromError: from.currency.length === 0 ? SELECT_ERROR_MSG : false,
+            toError: to.currency.length === 0 ? SELECT_ERROR_MSG : false,
           },
         });
       }

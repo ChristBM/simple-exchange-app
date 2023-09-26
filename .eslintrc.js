@@ -87,6 +87,7 @@ module.exports = {
           'Vercel',
           'airbnb',
           'Resize',
+          'textbox',
           'mantine',
           'sonarjs',
           'globals',

@@ -1,5 +1,5 @@
 import CalculatorTitle from '@exCalcComponents/CalculatorTitle/CalculatorTitle';
-import Calculator from '@exCalcComponents/Calculator/Calculator';
+import Calculator from '@exCalcComponents/Calculator';
 
 import { HomeSection, HomeWrapper } from './styles';
 import { HomePageLayoutProps } from './Interfaces';

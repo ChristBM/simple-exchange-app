@@ -16,6 +16,7 @@ import {
 
 export default function Calculator({
   currencies = CALCULATOR_DEFAULT_PROPS.currencies,
+  convertBtnLabel = CALCULATOR_DEFAULT_PROPS.convertBtnLabel,
 }: CalculatorProps) {
   const {
     computedColorScheme,
@@ -45,6 +46,7 @@ export default function Calculator({
         />
 
         <Select
+          data-testid="from-select-id"
           leftSection={<IconCash size={18} />}
           data={selectCurrencyFrom.data}
           label={selectCurrencyFrom.label}
@@ -62,6 +64,7 @@ export default function Calculator({
         />
 
         <Select
+          data-testid="to-select-id"
           leftSection={<IconCash size={18} />}
           data={selectCurrencyTo.data}
           label={selectCurrencyTo.label}
@@ -90,7 +93,7 @@ export default function Calculator({
           loaderProps={convertButtonProps.loaderProps}
           onClick={convertButtonProps.onClick}
         >
-          Convert
+          {convertBtnLabel}
         </Button>
       </ButtonSectionWrapper>
 

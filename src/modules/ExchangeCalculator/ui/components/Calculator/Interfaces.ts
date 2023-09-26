@@ -2,6 +2,7 @@ import { ComboboxItem } from '@mantine/core';
 
 export type CalculatorProps = {
   currencies?: ComboboxItem[];
+  convertBtnLabel?: string;
 };
 
 export type CalculatorArgs = {
