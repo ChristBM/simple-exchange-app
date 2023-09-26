@@ -95,6 +95,7 @@ module.exports = {
           'plusplus',
           'tsconfig',
           'Dropdown',
+          'Combobox',
           'linebreak',
           'unobserve',
           'breakpoint',

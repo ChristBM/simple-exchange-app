@@ -1,9 +1,41 @@
+import { useEffect, useReducer } from 'react';
 import {
-  ButtonProps, NumberInputProps, SelectProps, useComputedColorScheme,
+  ButtonProps, ElementProps, NumberInputProps, SelectProps, useComputedColorScheme,
 } from '@mantine/core';
+import calcConversion, { calcRate } from '@exCalcUtils/functions/calcConversion';
+import optFinder from '@exCalcUtils/functions/optFinder';
 
-export default function useCalculator() {
+import calcReducer, { CalcInitialState } from './Reducer';
+import { CalculatorArgs } from './Interfaces';
+
+export default function useCalculator({ currencies }: CalculatorArgs) {
+  const [{
+    amount, from, to, conversion, exchangeRate, errorField,
+  }, dispatch] = useReducer(calcReducer, CalcInitialState);
+
   const computedColorScheme = useComputedColorScheme('light', { getInitialValueInEffect: true });
+
+  useEffect(() => {
+    if (errorField && from.currency) {
+      dispatch({
+        type: 'SET_SELECT_ERRORS',
+        payload: {
+          fromError: false,
+          toError: errorField.toError,
+        },
+      });
+    }
+
+    if (errorField && to.currency) {
+      dispatch({
+        type: 'SET_SELECT_ERRORS',
+        payload: {
+          fromError: errorField.fromError,
+          toError: false,
+        },
+      });
+    }
+  }, [from.currency, to.currency]);
 
   const amountNumberInput: NumberInputProps = {
     label: 'Amount',
@@ -12,57 +44,106 @@ export default function useCalculator() {
     radius: 'md',
     thousandSeparator: ',',
     allowNegative: false,
-    decimalScale: 2,
+    decimalScale: 3,
     min: 0,
-    required: true,
-
-    error: false,
-    disabled: false,
+    defaultValue: 0,
+    onChange: (value) => {
+      dispatch({ type: 'SET_AMOUNT', payload: value as number });
+    },
   };
 
   const selectCurrencyFrom: SelectProps = {
     label: 'From',
     description: 'From which currency do you want to convert to?',
     placeholder: 'Select a currency',
-    data: ['Euro', 'Dollar', 'Peso', 'Libra', 'Bitcoin', 'Balboa', 'Belly'], // string[] o { value: string; label: string; disabled?: boolean }[] o { group: string; item: string[]; }[]
-    nothingFoundMessage: 'Sorry, we do not have this coin :(',
+    data: currencies,
+    nothingFoundMessage: 'Sorry, we do not have this currency',
     radius: 'md',
     allowDeselect: false,
     checkIconPosition: 'right',
     searchable: true,
-    limit: 5,
     maxDropdownHeight: 200,
     required: true,
+    error: errorField?.fromError,
+    onChange: (value) => {
+      const opt = optFinder(currencies, value ?? '');
 
-    error: false,
-    disabled: false,
+      if (value && opt) {
+        dispatch({
+          type: 'SET_FROM',
+          payload: {
+            rate: parseFloat(opt.value),
+            currency: opt?.label,
+          },
+        });
+      }
+    },
   };
 
   const selectCurrencyTo: SelectProps = {
     label: 'To',
     description: 'What currency do you want to convert into?',
     placeholder: 'Select a currency',
-    data: ['Euro', 'Dollar', 'Peso', 'Libra', 'Bitcoin', 'Balboa', 'Belly'], // string[] o { value: string; label: string; disabled?: boolean }[] o { group: string; item: string[]; }[]
-    nothingFoundMessage: 'Sorry, we do not have this coin :(',
+    data: currencies,
+    nothingFoundMessage: 'Sorry, we do not have this currency',
     allowDeselect: false,
     checkIconPosition: 'right',
     searchable: true,
-    limit: 5,
     maxDropdownHeight: 200,
     required: true,
+    error: errorField?.toError,
+    onChange: (value) => {
+      const opt = currencies.find((item) => item.value === value);
 
-    error: false,
-    disabled: false,
+      if (value && opt) {
+        dispatch({
+          type: 'SET_TO',
+          payload: {
+            rate: parseFloat(opt.value),
+            currency: opt?.label,
+          },
+        });
+      }
+    },
   };
 
-  const convertButtonProps: ButtonProps = {
+  const convertButtonProps: ButtonProps & ElementProps<'button', keyof ButtonProps> = {
     size: 'md',
-    justify: 'space-around',
-    variant: 'gradient',
     radius: 'md',
-    loading: false, // boolean
-    loaderProps: { type: 'dots' },
+    variant: 'gradient',
+    justify: 'space-around',
+    onClick: () => {
+      if (from.currency && to.currency) {
+        dispatch({
+          type: 'SET_CONVERSION',
+          payload: {
+            result: calcConversion({ amount, fromRate: from.rate, toRate: to.rate }),
+            currency: to.currency,
+          },
+        });
+
+        dispatch({
+          type: 'SET_EXCHANGE_RATE',
+          payload: {
+            fromCurrency: from.currency,
+            result: calcRate({ fromRate: from.rate, toRate: to.rate }),
+            toCurrency: to.currency,
+          },
+        });
+      } else {
+        dispatch({
+          type: 'SET_SELECT_ERRORS',
+          payload: {
+            fromError: from.currency.length === 0 ? 'Please select a currency' : false,
+            toError: to.currency.length === 0 ? 'Please select a currency' : false,
+          },
+        });
+      }
+    },
   };
+
+  // eslint-disable-next-line no-console
+  console.log(conversion, exchangeRate);
 
   return {
     computedColorScheme,
