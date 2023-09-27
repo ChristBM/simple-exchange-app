@@ -9,8 +9,8 @@ const fixture: HomePageLayoutProps = {
 };
 
 export const TEST_AMOUNT = 1.5;
-const fromRate = parseFloat(CALCULATOR_DEFAULT_PROPS.currencies[0].value); // USD
-const toRate = parseFloat(CALCULATOR_DEFAULT_PROPS.currencies[1].value); // MXN
+const fromRate = parseFloat(CALCULATOR_DEFAULT_PROPS.currencies[0].value.split('-')[1]); // USD
+const toRate = parseFloat(CALCULATOR_DEFAULT_PROPS.currencies[1].value.split('-')[1]); // MXN
 
 export const conversionRes = calcConversion({
   amount: TEST_AMOUNT,

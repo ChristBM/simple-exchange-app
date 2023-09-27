@@ -75,7 +75,7 @@ export default function useCalculator({ currencies }: CalculatorArgs) {
         dispatch({
           type: 'SET_FROM',
           payload: {
-            rate: parseFloat(opt.value),
+            rate: parseFloat(opt.value.split('-')[1]),
             currency: opt?.label,
           },
         });
@@ -103,7 +103,7 @@ export default function useCalculator({ currencies }: CalculatorArgs) {
         dispatch({
           type: 'SET_TO',
           payload: {
-            rate: parseFloat(opt.value),
+            rate: parseFloat(opt.value.split('-')[1]),
             currency: opt?.label,
           },
         });
