@@ -21,7 +21,12 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@public/*": ["public/*"]
+      "@public/*": ["public/*"],
+      "@common/*": ["src/common/*"],
+      "@exCalcApi/*": ["src/modules/ExchangeCalculator/api/*"],
+      "@exCalcViews/*": ["src/modules/ExchangeCalculator/ui/views/*"],
+      "@exCalcComponents/*": ["src/modules/ExchangeCalculator/ui/components/*"],
+      "@exCalcUtils/*": ["src/modules/ExchangeCalculator/utils/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

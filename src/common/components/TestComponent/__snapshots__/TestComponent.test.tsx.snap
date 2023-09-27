@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TestComponent /> Renders correctly (snapshot) 1`] = `
+<div
+  className="sc-e3051fbf-0 gNlaZY"
+>
+  <h1
+    className="sc-e3051fbf-1 dFUtuC"
+  />
+  <p
+    className="sc-e3051fbf-2 eYncjv"
+  >
+    subtitle
+  </p>
+  <button
+    className="sc-e3051fbf-3 hSklqs"
+    onClick={[Function]}
+  >
+    add
+  </button>
+</div>
+`;
