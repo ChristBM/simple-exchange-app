@@ -31,6 +31,7 @@ export default function Calculator({
     <CalculatorWrapper $scheme={computedColorScheme}>
       <InputSectionWrapper>
         <NumberInput
+          data-testid="amount-number-input-id"
           leftSection={<IconCoins size={18} />}
           min={amountNumberInput.min}
           label={amountNumberInput.label}
